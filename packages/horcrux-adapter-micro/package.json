@@ -1,0 +1,35 @@
+{
+  "name": "@47ng/horcrux-adapter-micro",
+  "version": "0.0.1",
+  "description": "Horcrux adapter for zeit/micro",
+  "author": {
+    "name": "Francois Best",
+    "email": "contact@francoisbest.com",
+    "url": "https://francoisbest.com"
+  },
+  "homepage": "https://github.com/47ng/horcrux",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/47ng/horcrux.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/47ng/horcrux/issues"
+  },
+  "peerDependencies": {
+    "micro": "*"
+  },
+  "devDependencies": {
+    "@types/micro": "^7.3.3"
+  },
+  "dependencies": {
+    "@47ng/horcrux-handler": "^0.0.1"
+  }
+}
