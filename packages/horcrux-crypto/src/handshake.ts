@@ -42,13 +42,7 @@ export const generateRequest = async (state: HorcruxProtectedState) => {
   const totp = generateTotpCode(state.totpSecret)
   const encryptionKeyPair = nacl.box.keyPair()
   const pub = b64.encode(encryptionKeyPair.publicKey)
-  const hashInput = [
-    state.name,
-    state.identifier,
-    state.ed25519Public,
-    pub,
-    totp
-  ].join()
+  const hashInput = [state.name, state.identifier, pub, totp].join('')
   const sig = await signStringHash(hashInput, state.ed25519Secret, 'utf8')
 
   const params: HorcruxRequestParams = {
@@ -75,10 +69,9 @@ export const verifyRequestAndGenerateResponse = async (
   const hashInput = [
     state.name,
     state.identifier,
-    state.ed25519Public,
     params.pub,
     params.totp
-  ].join()
+  ].join('')
   await verifyStringHashSignature(
     hashInput,
     params.sig,
