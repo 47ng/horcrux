@@ -1,7 +1,7 @@
 {
-  "name": "@47ng/horcrux-adapter-micro",
+  "name": "@47ng/horcrux-env",
   "version": "0.0.1",
-  "description": "Horcrux adapter for zeit/micro",
+  "description": "Horcrux environment library",
   "author": {
     "name": "Francois Best",
     "email": "contact@francoisbest.com",
@@ -23,13 +23,9 @@
   "bugs": {
     "url": "https://github.com/47ng/horcrux/issues"
   },
-  "peerDependencies": {
-    "micro": "*"
-  },
   "dependencies": {
-    "@47ng/horcrux-handler": "^0.0.1"
-  },
-  "devDependencies": {
-    "@types/micro": "^7.3.3"
+    "@47ng/check-env": "^1.4.0",
+    "@47ng/horcrux-crypto": "^0.0.1",
+    "dotenv": "^8.2.0"
   }
 }

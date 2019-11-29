@@ -1,18 +1,32 @@
-export interface RequestBody {}
+import {
+  verifyRequestAndGenerateResponse,
+  HorcruxRequestParams,
+  HorcruxResponse
+} from '@47ng/horcrux-crypto'
+import { configureHandlerEnvironment } from '@47ng/horcrux-env'
+
+export type RequestBody = HorcruxRequestParams
 
 export interface Request {
   method: string // Must be POST
-  body: RequestBody
+  body?: RequestBody
 }
 
-export interface ResponseBody {
-  horcrux: string
-  sig: string
+export interface ErrorResponse {
+  error: string
+  details?: string
 }
 
-export type Response = (status: number, data: any) => void
+export type Response = (
+  status: number,
+  data: HorcruxResponse | ErrorResponse
+) => void
 
 // --
+
+const state = configureHandlerEnvironment()
+
+export const horcruxName = state.name
 
 const requestHandler = async (req: Request, res: Response) => {
   // todo: Allow OPTIONS ?
@@ -21,11 +35,23 @@ const requestHandler = async (req: Request, res: Response) => {
       error: `Only POST is allowed`
     })
   }
-  const body: ResponseBody = {
-    horcrux: 'todo: Implement me.',
-    sig: 'todo: Implement me.'
+  if (!req.body) {
+    return res(400, {
+      error: `Missing JSON body`
+    })
   }
-  return res(200, body)
+
+  try {
+    const response = await verifyRequestAndGenerateResponse(req.body, state)
+    return res(200, response)
+  } catch (error) {
+    // todo: Forward better/known status codes
+    if (error.message === 'Invalid TOTP code') {
+    }
+    return res(403, {
+      error: error.message
+    })
+  }
 }
 
 export default requestHandler

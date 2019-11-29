@@ -1,3 +1,4 @@
+import nacl from 'tweetnacl'
 import * as tss from '@stablelib/tss'
 import { Encoding, encoders, decoders, b64 } from './codec'
 
@@ -17,7 +18,8 @@ export const splitSecret = (
   encoding: Encoding = 'utf8'
 ) => {
   const decode = decoders[encoding]
-  const shards = tss.split(decode(secret), threshold, numShards)
+  const identifier = nacl.randomBytes(16)
+  const shards = tss.split(decode(secret), threshold, numShards, identifier)
   return shards.map(shard => b64.encode(shard))
 }
 

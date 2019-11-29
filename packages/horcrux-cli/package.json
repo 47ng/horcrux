@@ -1,7 +1,7 @@
 {
-  "name": "@47ng/horcrux-adapter-micro",
+  "name": "@47ng/horcrux-cli",
   "version": "0.0.1",
-  "description": "Horcrux adapter for zeit/micro",
+  "description": "Horcrux CLI",
   "author": {
     "name": "Francois Best",
     "email": "contact@francoisbest.com",
@@ -9,7 +9,8 @@
   },
   "homepage": "https://github.com/47ng/horcrux",
   "license": "MIT",
-  "main": "./src/index.ts",
+  "main": "./src/main.ts",
+  "bin": "./src/main.ts",
   "publishConfig": {
     "access": "public"
   },
@@ -23,13 +24,22 @@
   "bugs": {
     "url": "https://github.com/47ng/horcrux/issues"
   },
-  "peerDependencies": {
-    "micro": "*"
-  },
   "dependencies": {
-    "@47ng/horcrux-handler": "^0.0.1"
+    "@47ng/check-env": "^1.4.0",
+    "@47ng/horcrux-client": "^0.0.1",
+    "@47ng/horcrux-env": "^0.0.1",
+    "@stablelib/base64": "^0.7.2",
+    "@stablelib/hex": "^0.5.0",
+    "@stablelib/tss": "^0.7.4",
+    "@stablelib/utf8": "^0.10.1",
+    "commander": "^4.0.1",
+    "conf": "^6.2.0",
+    "dotenv": "^8.2.0",
+    "nanoid": "^2.1.7",
+    "node-webcrypto-ossl": "^1.0.48",
+    "tweetnacl": "^1.0.1"
   },
   "devDependencies": {
-    "@types/micro": "^7.3.3"
+    "@types/nanoid": "^2.1.0"
   }
 }

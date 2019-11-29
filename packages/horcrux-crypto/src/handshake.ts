@@ -1,8 +1,9 @@
 import nacl from 'tweetnacl'
 import { b64 } from './codec'
-import { generateTotpCode, verifyTotpCode } from './totp'
+import { generateTotpCode, verifyTotpCode, generateTotpSecret } from './totp'
 import { encryptNaClBox, decryptNaClBox } from './ciphers'
 import { signStringHash, verifyStringHashSignature } from './signature'
+import nanoid from 'nanoid'
 
 export interface HorcruxPublicState {
   // Public parameters
@@ -34,6 +35,40 @@ export interface HorcruxRequestParams {
 export interface HorcruxResponse {
   message: string // X25519 public key
   sig: string
+}
+
+// --
+
+export interface HorcruxStatePair {
+  clientState: HorcruxProtectedState
+  serverState: HorcruxPrivateState
+}
+
+export const generateHorcrux = (
+  secretShard: string,
+  horcruxName: string,
+  horcruxID: string = b64.encode(nacl.randomBytes(8))
+): HorcruxStatePair => {
+  const clientEd25519KeyPair = nacl.sign.keyPair()
+  const serverEd25519KeyPair = nacl.sign.keyPair()
+  const totpSecret = generateTotpSecret()
+  return {
+    serverState: {
+      name: horcruxName,
+      identifier: horcruxID,
+      ed25519Public: b64.encode(clientEd25519KeyPair.publicKey),
+      ed25519Secret: b64.encode(serverEd25519KeyPair.secretKey),
+      totpSecret,
+      secretShard
+    },
+    clientState: {
+      name: horcruxName,
+      identifier: horcruxID,
+      ed25519Public: b64.encode(serverEd25519KeyPair.publicKey),
+      ed25519Secret: b64.encode(clientEd25519KeyPair.secretKey),
+      totpSecret
+    }
+  }
 }
 
 // --
