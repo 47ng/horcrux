@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "target": "es2018",
     "module": "commonjs",
-    "lib": [],
+    "lib": ["dom"],
     "declaration": true,
 
     // Strict Type-Checking Options
@@ -16,8 +16,8 @@
     "alwaysStrict": true,
 
     // Additional Checks
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
 

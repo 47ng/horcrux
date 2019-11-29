@@ -1,0 +1,34 @@
+{
+  "name": "@47ng/horcrux-demo-server",
+  "version": "0.0.1",
+  "description": "Demo server for Horcrux, using micro",
+  "author": {
+    "name": "Francois Best",
+    "email": "contact@francoisbest.com",
+    "url": "https://francoisbest.com"
+  },
+  "homepage": "https://github.com/47ng/horcrux",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/47ng/horcrux.git"
+  },
+  "scripts": {
+    "start": "run-p _start:foo _start:bar _start:egg",
+    "start:fail": "run-p _start:foo _start:bar _start:spam",
+    "_start:foo": "PORT=3001 HORCRUX_SERVER_CONFIG=v1.horcrux-server.aDmm1etftpU=.eyJuYW1lIjoiZm9vIiwiaWRlbnRpZmllciI6ImFEbW0xZXRmdHBVPSIsImVkMjU1MTlQdWJsaWMiOiJlaU5HX2NsX1pwbDY1ekkyelRDb1dEaTQ3Yml1ZEtnMmdVNW84aU5KN1lZPSIsImVkMjU1MTlTZWNyZXQiOiJpQWxkd1dWeXM3dkxCRmNPWU92a3dwR1I0czI4QWJlanQ5LTh4MUp3Q3VLbENSOW9ycVprVnY2akhEUWV0clhKSXNJdjU0MERTWWZvZVdWdzBxaTRvQT09IiwidG90cFNlY3JldCI6IjBIX3ZBRjVpTGRYT0o2dzBGa1pTZENKTi1CTHVIUTAzTWVueWZRNWpzSk09Iiwic2VjcmV0U2hhcmQiOiJZb2hEVUJYUEhPU1FjZXBLSlk0OGJnSUNBQ3dCM3RqZHlOX2V5TTdmeU5sYS10VmE3X1pKZHE3RWZUZGUxOEdHTnk1ekRVaVQxbmpadjBrZHpVdXFXZz09In0= ts-node ./src/index.ts",
+    "_start:bar": "PORT=3002 HORCRUX_SERVER_CONFIG=v1.horcrux-server.FstDqdcB36o=.eyJuYW1lIjoiYmFyIiwiaWRlbnRpZmllciI6IkZzdERxZGNCMzZvPSIsImVkMjU1MTlQdWJsaWMiOiJ5VU9QUk5Hcm1lcnoyaFF6aTdQOUcycE5Rd0ZiNUZSNzZmWjNBWlhjYUpBPSIsImVkMjU1MTlTZWNyZXQiOiJPWHdUUWVhTHRKdkNucUNqUFN1TVU0VG44dGhrVFpZYm5IRFQtY1dZMllzdFdZSjBwN08xb0NCY3c3a2FFeE1lVlBScDVjdG9XOEJTRkdjOFNaTi1tQT09IiwidG90cFNlY3JldCI6IndVZm9ScXQtdVAwa3dkTVVSRjVIVjRlZUxub0dlNFdOZzcwaEIyMXNLNzQ9Iiwic2VjcmV0U2hhcmQiOiJZb2hEVUJYUEhPU1FjZXBLSlk0OGJnSUNBQ3dDTWpReEpETXlKQ0l6SkRXMkZqbTJBeHFsbWtJb2tkdXlPeTFxMjhLZjRhUl9PcFExVTZYeElhZEd0Zz09In0= ts-node ./src/index.ts",
+    "_start:egg": "PORT=3003 HORCRUX_SERVER_CONFIG=v1.horcrux-server.0Bbv-Ys-PuU=.eyJuYW1lIjoiZWdnIiwiaWRlbnRpZmllciI6IjBCYnYtWXMtUHVVPSIsImVkMjU1MTlQdWJsaWMiOiI0THAxYjByd1FhUnZJT1JzT2hocE5oYWxDeWhCMHJjd2tLV0pzdEpyd1dVPSIsImVkMjU1MTlTZWNyZXQiOiI5OWhMX3pLTGZsN0hSZkd5T0hlYzg5ZXRVV0hkY2lERjI4QThjbHZBSFRoQ29Qa0xUbUh5TTZYTnJoZGt0eTJDYVZjVnRESTB2M2NaQWZmak1BRjlUZz09IiwidG90cFNlY3JldCI6ImdPbFF4YXVkdElJc1JhblQyUlJQRGhYbXFyakp5TUxWdmxoUDNYUW93MGM9Iiwic2VjcmV0U2hhcmQiOiJZb2hEVUJYUEhPU1FjZXBLSlk0OGJnSUNBQ3dEbjVtY2laNmZpWS1laVpnYnU1UWJycmNJTi0tRlBIWWZsb0RIZG04eVRBblNsem1ZX2doY2pBcnJHdz09In0= ts-node ./src/index.ts",
+    "_start:spam": "PORT=3003 HORCRUX_SERVER_CONFIG=v1.horcrux-server.q1HBdjuodcs=.eyJuYW1lIjoiZWdnIiwiaWRlbnRpZmllciI6InExSEJkanVvZGNzPSIsImVkMjU1MTlQdWJsaWMiOiI2d3RwNmY0a0pFMnZxdFFvdWk3cERFRF9XaGI3eVhZa0JBN3FyWGVvaTA0PSIsImVkMjU1MTlTZWNyZXQiOiJSQmRQNFdzaWs0M3YwNUdQMFBhUEhIa3J2eHFxbkwyZ2xSMWJGd1VwLWRxQXJ1dlVXUVZ5UnBSVnZTTFJrTlNCNlRiZ3dtbVBKUzZjaWE4TjZOU25Hdz09IiwidG90cFNlY3JldCI6InRYc2RaYkVpbE5menYzd1N5bXVlaEpybzZBOERQaUVNdFQ3M3U1Y0lTSWs9Iiwic2VjcmV0U2hhcmQiOiJGYVR0X29DX0lOa2hDMWNxeFVWb05nSUNBQ3dEOF9YdzVmTHo1ZVB5NWZSMzFfaDN3dHRrVzRQcFVCcHotdXlyR2dOZUlHVy0tMVgwa21RdzRHYUhkdz09In0= ts-node ./src/index.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/47ng/horcrux/issues"
+  },
+  "dependencies": {
+    "@47ng/horcrux-adapter-micro": "^0.0.1",
+    "micro": "^9.3.4",
+    "npm-run-all": "^4.1.5",
+    "then-sleep": "^1.0.1"
+  }
+}

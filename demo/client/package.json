@@ -1,0 +1,27 @@
+{
+  "name": "@47ng/horcrux-demo-client",
+  "version": "0.0.1",
+  "description": "Fully integrated demo for Horcrux",
+  "author": {
+    "name": "Francois Best",
+    "email": "contact@francoisbest.com",
+    "url": "https://francoisbest.com"
+  },
+  "homepage": "https://github.com/47ng/horcrux",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/47ng/horcrux.git"
+  },
+  "scripts": {
+    "start": "source demo.env && ts-node ./src/index.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/47ng/horcrux/issues"
+  },
+  "dependencies": {
+    "@47ng/horcrux-client": "^0.0.1",
+    "then-sleep": "^1.0.1"
+  }
+}
